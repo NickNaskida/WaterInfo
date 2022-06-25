@@ -16,12 +16,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a, button {
-	display: block;
-	color: #fff;
-	text-decoration: none;
-	padding: 10px 20px;
-	background-color: #0084FF;
-	border-radius: 6px;
 	transition: all 0.2s ease;
 }
 
@@ -52,7 +46,10 @@ main img {
 	height: 200px;
 }
 
-main div {
+main div div {
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
 	margin-top: 2rem;
 }
 
