@@ -2,7 +2,6 @@
 
 #### Solution repository for Hack3 hackathon's 3rd track (Water)
 
----
 ## Inspiration
 
 ## What it does
