@@ -1,0 +1,94 @@
+html, body {
+	margin: 0;
+	font-size: 15px;
+	font-family: 'Rubik', sans-serif;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+*,
+*:before,
+*:after{
+	box-sizing: border-box;
+}
+
+a, button {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	padding: 10px 20px;
+	background-color: #0084FF;
+	border-radius: 6px;
+	transition: all 0.2s ease;
+}
+
+a:hover, button:hover {
+	cursor: pointer;
+	transform: scale(1.04);
+}
+
+main {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+}
+
+main h1 {
+	font-size: 50px;
+	font-weight: 700;
+}
+
+main img {
+	width: auto;
+	height: 200px;
+}
+
+main div {
+	margin-top: 2rem;
+}
+
+
+/*=======Shapes======*/
+
+.custom-shape-divider-top-1656185632 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1656185672 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1656185672 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 126px;
+}
+
+.custom-shape-divider-bottom-1656185672 .shape-fill {
+    fill: #0084FF;
+}
+
+.custom-shape-divider-top-1656185632 .shape-fill {
+    fill: #0084FF;
+}
