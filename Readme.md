@@ -1,4 +1,4 @@
-# WaterMeter
+# WaterInfo
 
 #### Solution repository for Hack3 hackathon's 3rd track (Water)
 
@@ -6,7 +6,7 @@
 Our inspiration was ESDS (The Earth Science Data Systems),that provides full and open access to NASA's collection of Earth science data for understanding and protecting our home planet. Our main idea was to create something similar.
 
 ## What it does
-WaterMeter is a system that provides the client an ability to define a drinking water source/lack location with detailed description. All these locations are added to the database and are visualized on interactive maps with detailed information.
+WaterInfo is a system that provides the client an ability to define a drinking water source/lack location with detailed description. All these locations are added to the database and are visualized on interactive maps with detailed information.
 
 ## How we built it
 First of all, it started with finding a tool that could visualize data on map. After google searching for a while, we ran into a tool for python called "Folium" that could handle interactive map visualization with markers, area definitions etc.
@@ -30,9 +30,10 @@ During development and brainstorming, we ran into many complex challenges that n
 - Got more proficient in Flask and Python
 
 
-## What's next for WaterMeter
+## What's next for WaterInfo
 - Creation of machine learning algorithm that will predict water lack locations based on previous locations and on factors like humidity, temperature, water quality and etc.
 - More detailed maps with heatmaps of water quality, Ph, pollution level around the globe.
+- Check for locations with water sources
 
 ## Languages & tools we used
 - Python
