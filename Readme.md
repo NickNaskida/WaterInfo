@@ -33,7 +33,10 @@ During development and brainstorming, we ran into many complex challenges that n
 ## What's next for WaterInfo
 - Creation of machine learning algorithm that will predict water lack locations based on previous locations and on factors like humidity, temperature, water quality and etc.
 - More detailed maps with heatmaps of water quality, Ph, pollution level around the globe.
+- Directions to nearest water source
 - Check for locations with water sources
+- Main page design changes
+- Location precise add with map
 
 ## Languages & tools we used
 - Python

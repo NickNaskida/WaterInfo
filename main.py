@@ -1,12 +1,11 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
 
 import folium
 from folium.plugins import LocateControl
 from flask_sqlalchemy import SQLAlchemy
-from wtforms.validators import ValidationError
 
-from services import get_cords
-from forms import SourceForm
+
+from forms import SourceForm, LackForm
 
 
 app = Flask(__name__)
@@ -20,6 +19,7 @@ db = SQLAlchemy(app)
 # Models
 class Marker(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    type = db.Column(db.String(100), nullable=False)
     info = db.Column(db.String(100), nullable=False)
     latitude = db.Column(db.String(100))
     longitude = db.Column(db.String(100))
@@ -31,34 +31,59 @@ class Marker(db.Model):
 # Routes
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    form = SourceForm()
+    lack_form = LackForm()
+    source_form = SourceForm()
 
-    if form.validate_on_submit():
-        address = form.address.data
-        info = form.info.data
+    print(request.form)
+    if lack_form.validate_on_submit() and 'lack_form' in request.form:
+        info = lack_form.info.data
+        latitude = lack_form.latitude.data
+        longitude = lack_form.longitude.data
+
         try:
-            cords = get_cords(address)
             new_marker = Marker(
+                type="lack",
                 info=info,
-                latitude=cords[0],
-                longitude=cords[1]
+                latitude=latitude,
+                longitude=longitude
             )
             db.session.add(new_marker)
             db.session.commit()
             return redirect(url_for('water_map'))
-        except:
-            raise ValidationError(f"Address - {address} does not exist.")
+        except Exception as e:
+            print(e)
+            return redirect(url_for('water_map'))
 
-    return render_template('index.html', form=form)
+    if source_form.validate_on_submit() and 'source_form' in request.form:
+        info = source_form.info.data
+        latitude = source_form.latitude.data
+        longitude = source_form.longitude.data
+
+        try:
+            new_marker = Marker(
+                type="source",
+                info=info,
+                latitude=latitude,
+                longitude=longitude
+            )
+            db.session.add(new_marker)
+            db.session.commit()
+            return redirect(url_for('water_map'))
+        except Exception as e:
+            print(e)
+            return redirect(url_for('water_map'))
+
+    return render_template('index.html', lack_form=lack_form, source_form=source_form)
 
 
 @app.route('/map')
 def water_map():
-    markers = Marker.query.all()
+    source_markers = Marker.query.filter(Marker.type == "source")
+    lack_markers = Marker.query.filter(Marker.type == "lack")
     folium_map = folium.Map()
     LocateControl(True).add_to(folium_map)
 
-    for i in markers:
+    for i in source_markers:
         folium.CircleMarker(
             location=[i.latitude, i.longitude],
             radius=10,
@@ -66,6 +91,16 @@ def water_map():
             color="#0084FF",
             fill=True,
             fill_color="#0084FF",
+        ).add_to(folium_map)
+
+    for i in lack_markers:
+        folium.CircleMarker(
+            location=[i.latitude, i.longitude],
+            radius=10,
+            popup=i.info,
+            color="crimson",
+            fill=True,
+            fill_color="crimson",
         ).add_to(folium_map)
 
     return folium_map._repr_html_()
