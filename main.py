@@ -61,7 +61,7 @@ def water_map():
     for i in markers:
         folium.CircleMarker(
             location=[i.latitude, i.longitude],
-            radius=20,
+            radius=10,
             popup=i.info,
             color="#0084FF",
             fill=True,
