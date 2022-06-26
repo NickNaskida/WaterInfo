@@ -34,7 +34,6 @@ def index():
     lack_form = LackForm()
     source_form = SourceForm()
 
-    print(request.form)
     if lack_form.validate_on_submit() and 'lack_form' in request.form:
         info = lack_form.info.data
         latitude = lack_form.latitude.data
