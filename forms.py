@@ -4,5 +4,5 @@ from wtforms.validators import DataRequired
 
 
 class SourceForm(FlaskForm):
-    info = StringField('short info', validators=[DataRequired()])
+    info = StringField('marker title', validators=[DataRequired()])
     address = StringField('Address', validators=[DataRequired()])
