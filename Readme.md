@@ -3,7 +3,7 @@
 #### Solution repository for Hack3 hackathon's 3rd track (Water)
 
 ## Inspiration
-Our inspiration was ESDS(The Earth Science Data Systems),that provides full and open access to NASA's collection of Earth science data for understanding and protecting our home planet.Our main idea was to create something similar,so we started working on it.
+Our inspiration was ESDS(The Earth Science Data Systems),that provides full and open access to NASA's collection of Earth science data for understanding and protecting our home planet. Our main idea was to create something similar.
 
 ## What it does
 WaterMeter is a system that provides the client an ability to define a drinking water source/lack location with detailed description. All these locations are added to the database and are visualized on interactive maps with detailed information.
