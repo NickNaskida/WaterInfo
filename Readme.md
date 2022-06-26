@@ -19,7 +19,7 @@ Finally, it was a matter of 10+ hours of development, learning, surfing through 
 During development and brainstorming, we encountered many complex challenges that needed a solution and answer.
 
 - Data gathering from clients (input forms etc.)
-- Data visualisation on map
+- Data visualization on map
 - General idea of the app (How to define water lack, source locations, etc.)
 
 ## Accomplishments that we're proud of
