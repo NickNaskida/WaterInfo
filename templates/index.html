@@ -30,7 +30,6 @@
         <h1>WaterMeter</h1>
         <div>
             <div>
-                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#LackModal">Add water lack <i class="fa-solid fa-map-pin"></i></button>
                 <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#SourceModal">Add water source <i class="fa-solid fa-map-pin"></i></button>
             </div>
             <br>
@@ -51,37 +50,30 @@
     </footer>
 
     <!--  Modals  -->
-    <div class="modal fade" id="LackModal" tabindex="-1" aria-labelledby="LackModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="LackModalLabel">Add water lack location</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  LackModal
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save and add</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="modal fade" id="SourceModal" tabindex="-1" aria-labelledby="SourceModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="SourceModalLabel">Add water source location</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="SourceModalLabel">Add water source location</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  SourceModal
+                    {% for field, errors in form.errors.items() %}
+                        {{ ', '.join(errors) }}
+                    {% endfor %}
+                    <form method="POST" id="source_form">
+                        {{ form.csrf_token }}
+                        <div class="form-group">
+                            {{ form.address.label }} {{ form.address(class="form-control") }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.info.label }} {{ form.info(class="form-control") }}
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save and add</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" form="source_form">Save and add</button>
                 </div>
             </div>
         </div>
