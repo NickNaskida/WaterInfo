@@ -8,6 +8,7 @@ Our inspiration was ESDS (The Earth Science Data Systems), which provides full a
 ## What it does
 WaterInfo is a web app that provides the client the ability to define a drinking water source/lack location with a detailed description. All these locations are added to the database and are visualized on interactive maps with detailed information.
 
+
 ## How we built it
 First of all, it started with finding a tool that could visualize data on a map. After google searching for a while, we ran into a tool for python called "Folium" that could handle interactive map visualization with markers, area definitions etc.
 
