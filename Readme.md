@@ -51,4 +51,4 @@ During development and brainstorming, we encountered many complex challenges tha
 - OpenStreetMap
 - Html, CSS, Bootstrap
 - Github
-- Figma (For logo and banner design)
+- Figma (For logo and banner designs)
