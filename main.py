@@ -59,7 +59,14 @@ def water_map():
     LocateControl(True).add_to(folium_map)
 
     for i in markers:
-        pass
+        folium.CircleMarker(
+            location=[i.latitude, i.longitude],
+            radius=20,
+            popup=i.info,
+            color="#0084FF",
+            fill=True,
+            fill_color="#0084FF",
+        ).add_to(folium_map)
 
     return folium_map._repr_html_()
 
